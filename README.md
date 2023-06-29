@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+Goal
+Using Node, Express, React, Redux, PostgreSQL, and Sequelize, build a RESTful full-stack web application to manage students and campuses. This will cover all of the CRUD operations such as Creation, Reading, Updating, and Deletion. This will encompass models, querying a database with an ORM, designing routes/endpoints and handler functions to process user requests and generate responses, writing out React Components, managing the state of the application with React-Redux, and much more. This will also involve having two individual repositories/applications (a separate server and a separate client), which encourages separation of concerns and modularity. 
+Assignment
+Complete the following general User Stories:
+As a User I:
+[   ] will land on a visually pleasing homepage by default, which allows navigation to view all campuses and all students
+can navigate to all campuses view, and
+[   ] see a list of all campuses in the database
+[   ] see an informative message if no campuses exist
+[   ] add a new campus
+[   ] with a validated form displaying real-time error messages
+[   ] which redirects to the new campus’ single campus view
+can navigate to a single campus view, and
+[   ] see details about a single campus, including enrolled students (if any)
+[   ] see an informative message if no students are enrolled at that campus
+[   ] navigate to any student’s single student view 
+[   ] delete the campus (and elegantly handle associated students)
+[   ] edit campus information (including adding/removing students)
+[   ] with a validated form displaying real-time error messages
+[   ] which redirects back to the single campus view
+can navigate to all students view, and
+[   ] see a list of all students in the database
+[   ] see an informative message if no students exist
+[   ] add a new student
+[   ] with a validated form displaying real-time error messages
+[   ] which redirects the new student’s single student view
+can navigate to a single student view, and
+[   ] see details about a single student, including the campus at which they are enrolled (if exists)
+[   ] see an informative message if student is not enrolled at a campus
+[   ] navigate to single campus view of the student’s enrolled campus
+[   ] delete the student
+[   ] edit the student’s information (including campus s/he is enrolled at)
+[   ] with a validated form displaying real-time error messages
+[   ] which redirects back to the single student view
+Complete = Completes all User Stories above
+Incomplete = Does not complete all User Stories above; needs improvement or missing submission
+Here is a more technical breakdown/guideline of what’s expected from the above User Stories...
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+All Campuses and Students (21/57)
 
-## Available Scripts
+Backend (Sequelize)
+- [ ] Write a `campuses` model with the following information:
+  - [ ] name - not empty or null
+  - [ ] imageUrl - with a default value
+  - [ ] address - not empty or null
+  - [ ] description - extremely large text
 
-In the project directory, you can run:
+- [ ] Write a `students` model with the following information:
+  - [ ] firstName - not empty or null
+  - [ ] lastName - not empty or null
+  - [ ] email - not empty or null; must be a valid email
+  - [ ] imageUrl - with a default value
+  - [ ] gpa - decimal between 0.0 and 4.0
 
-### `npm start`
+- [ ] Students may be associated with at most one campus. Likewise, campuses may be associated with many students
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+(Express and Sequelize)
+- [ ] Write a route to serve up all students
+- [ ] Write a route to serve up all campuses
 
-### `npm test`
+Frontend (React-Redux, React, and React Router)
+- [ ] Write a campuses sub-reducer to manage campuses in your Redux store
+- [ ] Write a students sub-reducer to manage students in your Redux store
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [ ] Write a component to display a list of all campuses (just their names and images)
+- [ ] Write a component to display a list of all students (just their names)
+- [ ] Display the all-campuses component when the url matches `/campuses`
+- [ ] Display the all-students component when the url matches `/students`
+- [ ] Add links to the navbar that can be used to navigate to the all-campuses view and the all-students view
 
-### `npm run build`
+Single Student and Single Campus (14/57)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Backend (Express and Sequelize)
+- [ ] Write a route to serve up a single campus (based on its id), _including that campuses' students_
+- [ ] Write a route to serve up a single student (based on their id), _including that student's campus_
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Frontend (React and React Router)
+- [ ] Write a component to display a single campus with the following information:
+  - [ ] The campus's name, image, address and description
+  - [ ] A list of the names of all students in that campus (or a helpful message if it doesn't have any students)
+- [ ] Display the appropriate campus's info when the url matches `/campuses/:campusId`
+- [ ] Clicking on a campus from the all-campuses view should navigate to show that campus in the single-campus view
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ ] Write a component to display a single student with the following information:
+  - [ ] The student's full name, email, image, and gpa
+  - [ ] The name of their campus (or a helpful message if they don't have one)
+- [ ] Display the appropriate student when the url matches `/students/:studentId`
+- [ ] Clicking on a student from the all-students view should navigate to show that student in the single-student view
 
-### `npm run eject`
+- [ ] Clicking on the name of a student in the single-campus view should navigate to show that student in the single-student view
+- [ ] Clicking on the name of a campus in the single-student view should navigate to show that campus in the single-campus view
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Adding a Campus and Adding a Student (12/57)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Backend (Express and Sequelize)
+- [ ] Write a route to add a new campus
+- [ ] Write a route to add a new student
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Frontend (React and React Router)
+- [ ] Write a component to display a form for adding a new campus that contains inputs for _at least_ the name and address.
+- [ ] Display this component EITHER as part of the all-campuses view, or as its own view
+- [ ] Submitting the form with a valid name/address should:
+  - [ ] Make an AJAX request that causes the new campus to be persisted in the database
+  - [ ] Add the new campus to the list of campuses without needing to refresh the page
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [ ] Write a component to display a form for adding a new student that contains inputs for _at least_ first name, last name and email
+- [ ] Display this component EITHER as part of the all-students view, or as its own view
+- [ ] Submitting the form with a valid first name/last name/email should:
+  - [ ] Make an AJAX request that causes the new student to be persisted in the database
+  - [ ] Add the new student to the list of students without needing to refresh the page
 
-## Learn More
+Removing a Campus and Removing a Student (10/57)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Backend (Express and Sequelize)
+- [ ] Write a route to remove a campus (based on its id)
+- [ ] Write a route to remove a student (based on their id)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Frontend (React and Axios/Fetch)
+- [ ] In the all-campuses view, include an `X` button next to each campus
+- [ ] Clicking the `X` button should:
+  - [ ] Make an AJAX request that causes that campus to be removed from database
+  - [ ] Remove the campus from the list of campuses without needing to refresh the page
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [ ] In the all-students view, include an `X` button next to each student
+- [ ] Clicking the `X` button should:
+  - [ ] Make an AJAX request that causes that student to be removed from database
+  - [ ] Remove the student from the list of students without needing to refresh the page
