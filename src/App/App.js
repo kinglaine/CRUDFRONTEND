@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import './App.css';
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
-import Home from "./Pages/HomePage";
-import Campuses from "./Pages/CampusPage";
-import Students from "./Pages/StudentPage";
+import Home from "../Pages/HomePage";
+import Campuses from "../Pages/CampusPage";
+import Students from "../Pages/StudentPage";
 function App() {
   const [pageName, setPageName] = useState("");
   return (
