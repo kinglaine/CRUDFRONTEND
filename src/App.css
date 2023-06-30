@@ -1,0 +1,29 @@
+.App{
+    background-color: rgb(193, 190, 190);
+}
+.App h1 {
+    text-align: center;
+    margin: 0;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.navigation {
+    background-color: rgb(77, 81, 81);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.navigation ul{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+.navigation :link {
+    text-decoration: none;
+    font-weight: bold;
+}
+.navigation span{
+    color: rgb(221, 214, 214);
+}
