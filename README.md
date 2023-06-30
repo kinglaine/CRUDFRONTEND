@@ -3,7 +3,7 @@
 #### Assignment
 Complete the following general User Stories:
 - As a User I:
-- [ ] will land on a visually pleasing homepage by default, which allows navigation to view all campuses and all students
+- [x] will land on a visually pleasing homepage by default, which allows navigation to view all campuses and all students
 - Can navigate to all campuses view, and
   - [ ] see a list of all campuses in the database
   - [ ] see an informative message if no campuses exist
