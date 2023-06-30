@@ -1,6 +1,7 @@
 import React from "react";
 
-function CampusPage(){
+function CampusPage({setPageName}){
+    setPageName("Campus Listing");
     return (
         <div>Campus Page</div>
     );

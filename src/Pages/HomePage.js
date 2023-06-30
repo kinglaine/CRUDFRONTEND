@@ -1,8 +1,9 @@
 import React from "react";
 
-function HomePage(){
+function HomePage({setPageName}){
+    setPageName("Home")
     return(
-        <div>HomePage</div>
+        <div style={{height: '100px'}}>HomePage</div>
     );
 }
 
