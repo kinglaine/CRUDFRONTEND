@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import Home from "./Pages/HomePage";
 import Campuses from "./Pages/CampusPage";
 import Students from "./Pages/StudentPage";
 function App() {
+  const [pageName, setPageName] = useState("");
   return (
     <Router>
       <div className="App">
-        <h1>Home</h1>
+        <h1>{pageName}</h1>
         <nav className="navigation">
           <ul>
             <li>
@@ -18,14 +19,14 @@ function App() {
               <Link to = "/Campuses"><span>Campuses</span></Link>
             </li>
             <li>
-              <Link to = "/Students"><span>Campuses</span></Link>
+              <Link to = "/Students"><span>Students</span></Link>
             </li>
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/Campuses" element={<Campuses></Campuses>}></Route>
-          <Route path="/Students" element={<Students></Students>}></Route>
+          <Route path="/" element={<Home setPageName ={setPageName}></Home>}></Route>
+          <Route path="/Campuses" element={<Campuses setPageName ={setPageName}></Campuses>}></Route>
+          <Route path="/Students" element={<Students setPageName ={setPageName}></Students>}></Route>
         </Routes>
       </div>
     </Router>
