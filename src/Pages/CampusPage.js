@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCampusesThunk } from "../redux/campuses/campuses.action";
-import CampusesList from "../components/CampusesList";
+import CampusesList from "../components/CampusesListComponent";
 
 function CampusPage(){
     useEffect(() => {
