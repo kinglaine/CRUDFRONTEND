@@ -1,0 +1,47 @@
+#campusContainer {
+    background-color: grey;
+    padding: 2%;
+    display: flex;
+    gap: 5%;
+
+}
+
+#info {
+   display: block;
+   position: relative;
+}
+.about{
+    position: relative;
+}
+#campusName {
+    display: block;
+    font-size: larger;
+    margin-bottom: 10%;
+}
+#campusName a{
+    color: #1ff0ff
+}
+
+#actions{
+    position: absolute;
+    bottom: 0;
+}
+#edit{
+    color: #1ff0ff;
+}
+#delete{
+    position: relative;
+    left: 12rem;
+    background-color: green;
+    border: none;
+    outline: none;
+    font-weight: bold;
+}
+#delete:hover {
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: bold;
+}
+#delete:active{
+    font-weight: normal;
+}
