@@ -15,7 +15,7 @@ function CampusPage(){
         return dispatch(fetchAllCampusesThunk());
     };
     return (
-        <div>
+        <div style={{marginTop: '10px', columnCount: 2}}>
             <CampusesList allCampuses={allCampuses}></CampusesList>
         </div>
     );
