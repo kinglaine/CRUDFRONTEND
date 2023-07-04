@@ -1,0 +1,40 @@
+#formContainer{
+    text-align: center;
+}
+
+.campusForm input {
+    width: 50%;
+    height: 5vh;
+    margin-bottom: 1%;
+}
+
+#description{
+    width: 50%;
+    height: 20vh;
+    padding-bottom: 100px;
+    margin-bottom: 1%;
+    border-style: none;
+    
+}
+
+#description::placeholder{
+  height: 80%;
+}
+
+#submit{
+    height: 8vh;
+    width: 15%;
+    border: none; 
+    background-color: #1ff0ff;
+    font-weight: bold;
+    font-size: large;
+    border-radius: 15px;
+}
+
+#submit:active{
+    background-color: #1cd2df;
+}
+
+#submit:hover{
+    cursor: pointer;
+}
