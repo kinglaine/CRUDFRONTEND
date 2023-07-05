@@ -5,7 +5,7 @@ export default function CampusesList({allCampuses}){
     return allCampuses? (
         allCampuses.map((item) => {
             return (
-                <div  key={item.id} style={{marginBottom: '10px'}}>
+                <div  key={item.id} style={{marginBottom: '10px', flexBasis: '50%', boxSizing: 'border-box', padding:'10px'}}>
                     <CampusComponent campusName={item.name} imgUrl={item.imageUrl}></CampusComponent>
                 </div>
             )
