@@ -1,6 +1,6 @@
 import React from "react";
 import "./CampusComponent.css";
-
+import axios from "axios";
 function CampusComponent({campusName, imgUrl}){
     //check if image is valid
     function isNotImageUrl(url) {
@@ -22,6 +22,14 @@ function CampusComponent({campusName, imgUrl}){
         textAlign: 'center',
         backgroundColor: 'rgb(193, 190, 190)'
     }
+    const handleDelete = async (e) => {
+        try {
+            await axios.delete(`http://localhost:8081/api/campuses/RemoveCampus/${campusName}`);
+            window.location.reload();
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return(
         <div id="campusContainer">
             {isNotImageUrl(imgUrl)? <div style={imgContainerInvalid}> <p>[No Campus Image]</p></div> : <div style={imgContainer}></div>}
@@ -32,7 +40,7 @@ function CampusComponent({campusName, imgUrl}){
                 </div>
                 <div id="actions">
                     <a id="edit" href="">Edit</a>
-                    <button id="delete">Delete</button>
+                    <button id="delete" onClick={handleDelete}>Delete</button>
                 </div>
             </div>
         </div>
