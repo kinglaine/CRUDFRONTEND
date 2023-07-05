@@ -8,9 +8,9 @@ const campusReducer = (state = INITIAL_CAMPUS_STATE, {type, payload}) => {
     console.log("CAMPUS REDUCER IS HANDLING FETCH ALL CAMPUSES ACTION");
     switch (type) {
         case campusActionType.FETCH_ALL_CAMPUSES:
-            return {...state.allCampuses, payload};
+            return {...state, allCampuses: payload};
         default:
-            return state.allCampuses;
+            return state;
     }
 }
 
