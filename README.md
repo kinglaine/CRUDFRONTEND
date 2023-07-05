@@ -5,10 +5,10 @@ Complete the following general User Stories:
 - As a User I:
 - [x] will land on a visually pleasing homepage by default, which allows navigation to view all campuses and all students
 - Can navigate to all campuses view, and
-  - [ ] see a list of all campuses in the database
-  - [ ] see an informative message if no campuses exist
-  - [ ] add a new campus
-    - [ ] with a validated form displaying real-time error messages
+  - [x] see a list of all campuses in the database
+  - [x] see an informative message if no campuses exist
+  - [x] add a new campus
+    - [x] with a validated form displaying real-time error messages
     - [ ] which redirects to the new campus’ single campus view
 - Can navigate to a single campus view, and
   - [ ] see details about a single campus, including enrolled students (if any)
@@ -63,9 +63,9 @@ Frontend (React-Redux, React, and React Router)
 - [ ] Write a campuses sub-reducer to manage campuses in your Redux store
 - [ ] Write a students sub-reducer to manage students in your Redux store
 
-- [ ] Write a component to display a list of all campuses (just their names and images)
+- [x] Write a component to display a list of all campuses (just their names and images)
 - [ ] Write a component to display a list of all students (just their names)
-- [ ] Display the all-campuses component when the url matches `/campuses`
+- [x] Display the all-campuses component when the url matches `/campuses`
 - [ ] Display the all-students component when the url matches `/students`
 - [ ] Add links to the navbar that can be used to navigate to the all-campuses view and the all-students view
 
@@ -94,15 +94,15 @@ Frontend (React and React Router)
 Adding a Campus and Adding a Student (12/57)
 
 Backend (Express and Sequelize)
-- [ ] Write a route to add a new campus
+- [x] Write a route to add a new campus
 - [ ] Write a route to add a new student
 
 Frontend (React and React Router)
-- [ ] Write a component to display a form for adding a new campus that contains inputs for _at least_ the name and address.
-- [ ] Display this component EITHER as part of the all-campuses view, or as its own view
-- [ ] Submitting the form with a valid name/address should:
-  - [ ] Make an AJAX request that causes the new campus to be persisted in the database
-  - [ ] Add the new campus to the list of campuses without needing to refresh the page
+- [x] Write a component to display a form for adding a new campus that contains inputs for _at least_ the name and address.
+- [x] Display this component EITHER as part of the all-campuses view, or as its own view
+- [x] Submitting the form with a valid name/address should:
+  - [x] Make an AJAX request that causes the new campus to be persisted in the database
+  - [x] Add the new campus to the list of campuses without needing to refresh the page
 
 - [ ] Write a component to display a form for adding a new student that contains inputs for _at least_ first name, last name and email
 - [ ] Display this component EITHER as part of the all-students view, or as its own view
