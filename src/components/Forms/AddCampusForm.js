@@ -8,7 +8,6 @@ function AddCampusForm({setFormVisible}) {
     const [description, setDescription] = useState("");
     
     const handleSubmit = async (e) =>{
-        e.preventDefault(); 
         try {
             const response = await axios.post('http://localhost:8081/api/campuses/addcampus', {name, address, imageUrl, description});
             console.log(response.data);
