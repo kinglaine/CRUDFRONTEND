@@ -8,30 +8,31 @@ import AddCampusForm from "../components/Forms/AddCampusForm";
 
 function CampusPage(){
     const [formVisible, setFormVisible] = useState(false);
-    useEffect(() => {
-        console.log("FETCH ALL CAMPUSES CALLED IN USEFFECT");
-        fetchAllCampuses();
-    }, []);
 
-    const allCampuses = useSelector((state) => state.campuses.payload);
-    const dispatch = useDispatch();
     const fetchAllCampuses = () => {
         console.log("RUNNING IDSPATHC FROM FETCHALLCAPUSES");
         return dispatch(fetchAllCampusesThunk());
     };
-    
+
+    const dispatch = useDispatch();
+    let allCampuses = useSelector((state) => state.campuses.allCampuses);
+    useEffect(() => {
+        console.log("FETCH ALL CAMPUSES CALLED IN USEFFECT");
+        fetchAllCampuses();
+    }, [formVisible]);
+
     return (
         <div>
             {
-                formVisible? <AddCampusForm setFormVisible = {setFormVisible}></AddCampusForm> :
-                allCampuses?
-                    <div>
+                formVisible?(<AddCampusForm setFormVisible = {setFormVisible}></AddCampusForm>) :
+                (allCampuses.length > 0?
+                    (<div>
                         <AddCampusComponent setFormVisible = {setFormVisible}></AddCampusComponent>
-                        <div style={{marginTop: '10px', columnCount: 2}}>
+                        <div style={{display: 'flex', flexWrap:'wrap'}}>
                             <CampusesList allCampuses={allCampuses}></CampusesList>
                         </div>
-                    </div> :
-                    <AddCampusComponentEmptyDatabase/>            
+                    </div> ):
+                    (<AddCampusComponentEmptyDatabase setFormVisible = {setFormVisible}/>))      
             }
         </div>
     );
