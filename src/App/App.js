@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import Home from "../Pages/HomePage";
 import Campuses from "../Pages/CampusPage";
 import Students from "../Pages/StudentPage";
+import SingleCampusViewComponent from "../components/SingleCampusViewComponent";
 function App() {
   return (
     <Router>
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Home></Home>}></Route>
           <Route path="/Campuses" element={<Campuses></Campuses>}></Route>
           <Route path="/Students" element={<Students></Students>}></Route>
+          <Route path="/campusView/:campusName" element={<SingleCampusViewComponent></SingleCampusViewComponent>}></Route>
         </Routes>
       </div>
     </Router>
