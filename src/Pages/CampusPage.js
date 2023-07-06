@@ -20,11 +20,11 @@ function CampusPage(){
         console.log("FETCH ALL CAMPUSES CALLED IN USEFFECT");
         fetchAllCampuses();
     }, [formVisible]);
-
+    
     return (
         <div>
             {
-                formVisible?(<AddCampusForm setFormVisible = {setFormVisible}></AddCampusForm>) :
+                formVisible?(<AddCampusForm setFormVisible = {setFormVisible}></AddCampusForm>):
                 (allCampuses.length > 0?
                     (<div>
                         <AddCampusComponent setFormVisible = {setFormVisible}></AddCampusComponent>
@@ -32,7 +32,7 @@ function CampusPage(){
                             <CampusesList allCampuses={allCampuses}></CampusesList>
                         </div>
                     </div> ):
-                    (<AddCampusComponentEmptyDatabase setFormVisible = {setFormVisible}/>))      
+                (<AddCampusComponentEmptyDatabase setFormVisible = {setFormVisible}/>))      
             }
         </div>
     );
