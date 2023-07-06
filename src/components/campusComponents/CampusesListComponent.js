@@ -1,5 +1,5 @@
 import React from "react";
-import CampusComponent from "./CampusComponent";
+import CampusComponent from "../campusComponents/CampusComponent.js";
 export default function CampusesList({allCampuses}){
     console.log("LISTING CAMPUSES FROM CAMPUSESLIST COMPONENT");
     return allCampuses? (

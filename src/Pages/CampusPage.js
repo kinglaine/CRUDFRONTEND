@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCampusesThunk } from "../redux/campuses/campuses.action";
-import CampusesList from "../components/CampusesListComponent";
-import AddCampusComponent from "../components/AddCampusComponent";
-import AddCampusComponentEmptyDatabase from "../components/AddCampusComponentEmptyDatabase";
+import CampusesList from "../components/campusComponents/CampusesListComponent";
+import AddCampusComponent from "../components/campusComponents/AddCampusComponent";
+import AddCampusComponentEmptyDatabase from "../components/campusComponents/AddCampusComponentEmptyDatabase";
 import AddCampusForm from "../components/Forms/AddCampusForm";
 
 function CampusPage(){

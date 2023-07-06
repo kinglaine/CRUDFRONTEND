@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./CampusComponent.css";
+import "../campusComponents/CampusComponent.css";
 import axios from "axios";
 import {Link} from 'react-router-dom';
 function CampusComponent({campusName, imgUrl}){

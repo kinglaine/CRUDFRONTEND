@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./SingleCampusViewComponent.css";
+import "../campusComponents/SingleCampusViewComponent.css";
 import axios from "axios";
 function SingleCampusViewComponent(){
     const currentUrl = "http://localhost:8081/api/campuses"+window.location.pathname;

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import Home from "../Pages/HomePage";
 import Campuses from "../Pages/CampusPage";
 import Students from "../Pages/StudentPage";
-import SingleCampusViewComponent from "../components/SingleCampusViewComponent";
+import SingleCampusViewComponent from "../components/campusComponents/SingleCampusViewComponent";
 function App() {
   return (
     <Router>

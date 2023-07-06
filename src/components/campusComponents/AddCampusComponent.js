@@ -1,5 +1,5 @@
 import React from "react";
-import './AddCampusComponent.css';
+import '../campusComponents/AddCampusComponent.css';
 function AddCampusComponent({setFormVisible}) {
     const handleSubmit = (e) => {
         e.preventDefault();
