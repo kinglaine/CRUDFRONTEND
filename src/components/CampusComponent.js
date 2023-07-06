@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CampusComponent.css";
 import axios from "axios";
+import {Link} from 'react-router-dom';
 function CampusComponent({campusName, imgUrl}){
     //check if image is valid
     function isNotImageUrl(url) {
@@ -35,8 +36,8 @@ function CampusComponent({campusName, imgUrl}){
             {isNotImageUrl(imgUrl)? <div style={imgContainerInvalid}> <p>[No Campus Image]</p></div> : <div style={imgContainer}></div>}
             <div id="info">
                 <div className="about">
-                    <span id="campusName"><a href="">{campusName}</a></span>
-                    <span>6 Students</span>
+                    <Link to={`/campusView/${campusName}`} id="campusName">{campusName}</Link>
+                    <span id="studentNumber">6 Students</span>
                 </div>
                 <div id="actions">
                     <a id="edit" href="">Edit</a>
