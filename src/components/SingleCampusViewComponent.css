@@ -1,0 +1,57 @@
+#singleCampusContainer{
+    display: flex;
+    margin: 1%;
+    padding: 1%;
+    background-color:  rgb(77, 81, 81);
+}
+
+#text{
+    text-align: center;
+    width: 50%;
+    margin-left: 1%;
+    max-height: 40vh;
+    background-color: aqua;
+}
+
+#addressAndButtons{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+#campusIngleViewButtons{
+    width: 10%;
+}
+#deleteCampusSingleView{
+    float: inline-end;
+    background-color: green;
+    border: none;
+    outline: none;
+    font-weight: bold;
+}
+#deleteCampusSingleView:hover {
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: bold;
+}
+#deleteCampusSingleView:active{
+    color: red;
+}
+
+#addStudentsButon{
+    width: 15%;
+    border: none; 
+    background-color: #1ff0ff;
+    font-weight: bold;
+    font-size: large;
+    border-radius: 15px;
+}
+
+#addStudentsButon:active{
+    background-color: #1cd2df;
+}
+
+#addStudentsButon:hover{
+    cursor: pointer;
+}
