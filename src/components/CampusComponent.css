@@ -9,29 +9,31 @@
 #info {
    display: block;
    position: relative;
+   width: 50%;
 }
-.about{
-    position: relative;
-}
+
 #campusName {
     display: block;
     font-size: larger;
     margin-bottom: 10%;
 }
-#campusName a{
-    color: #1ff0ff
+#campusName{
+    color: #1ff0ff;
 }
 
 #actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     position: absolute;
     bottom: 0;
+    width: 100%;
 }
+
 #edit{
     color: #1ff0ff;
 }
 #delete{
-    position: relative;
-    left: 12rem;
     background-color: green;
     border: none;
     outline: none;
