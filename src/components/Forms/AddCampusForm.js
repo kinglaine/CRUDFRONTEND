@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../Forms/AddCampusForm.css"
 import axios from "axios";
-function AddCampusForm({setFormVisible}) {
+function AddCampusForm() {
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
     const [imageUrl, setImageUrl] = useState("");
@@ -12,7 +12,6 @@ function AddCampusForm({setFormVisible}) {
             e.preventDefault();
             const response = await axios.post('http://localhost:8081/api/campuses/addcampus', {name, address, imageUrl, description});
             console.log(response.data);
-            setFormVisible(false);
         } catch (error) {
             console.error(error);
         }
