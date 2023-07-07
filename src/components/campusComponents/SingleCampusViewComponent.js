@@ -1,15 +1,29 @@
 import React, { useEffect, useState } from "react";
 import "../campusComponents/SingleCampusViewComponent.css";
 import axios from "axios";
+import StudentListComponent from "../studentComponents/StudentListComponent";
+import StudentsListEmptyComponent from "../studentComponents/StudentsListEmptyComponents"
 function SingleCampusViewComponent(){
     const currentUrl = "http://localhost:8081/api/campuses"+window.location.pathname;
     console.log("hhe curr url is",currentUrl);
     const [campusData, setCampusData] = useState(null);
+    const [studentsData, setStudentsData] = useState(null);
     function getCampusData(){
         try {
             axios.get(currentUrl).then((response) =>{
-                setCampusData(response.data)
+                setCampusData(response.data);
                 console.log("this is the res",response)
+            })
+        } catch (error) {
+            console.log("error");
+        }
+    }
+
+    function getStudentsData(){
+        try {
+            axios.get(`${currentUrl}/Students`).then((response) =>{
+                setStudentsData(response.data)
+                console.log("this is the res studen",response)
             })
         } catch (error) {
             console.log("error");
@@ -17,6 +31,7 @@ function SingleCampusViewComponent(){
     }
     useEffect(()=>{
         getCampusData();
+        getStudentsData();
     },[]);
     const imgContainer = {
         width: '50%',
@@ -37,6 +52,8 @@ function SingleCampusViewComponent(){
       
         return !imageExtensions.test(url) || !imagePatterns.test(url);
     }
+    
+   
     return (
         <div>
             <div id="singleCampusContainer">
@@ -53,13 +70,19 @@ function SingleCampusViewComponent(){
                     <button id="deleteCampusSingleView">Delete</button>
                 </div>
             </div>
-            <div id="AddStudentI" style={{display:'flex', padding: '1%', justifyContent:'space-between'}}>
-                <h1>Students On campus</h1>
+           {
+            studentsData?.length > 0?
+            <div>
+                 <div id="AddStudentI" style={{display:'flex', padding: '1%', justifyContent:'space-between'}}>
+                <h1>Students on campus</h1>
                 <button id="addStudentsButon">Add Students</button>
-            </div>
-            <div id="studentOnCampus">
-
-            </div>
+                </div>
+                <div id="studentOnCampus" style={{display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:'20px', padding:'1%'}}>
+                    <StudentListComponent studentsData={studentsData} campusName={campusData?.name}></StudentListComponent>
+                </div>
+            </div>:
+            <StudentsListEmptyComponent></StudentsListEmptyComponent>
+           }
         </div>
     )
 }
