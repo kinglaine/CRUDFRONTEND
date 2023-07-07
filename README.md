@@ -11,13 +11,13 @@ Complete the following general User Stories:
     - [x] with a validated form displaying real-time error messages
     - [ ] which redirects to the new campus’ single campus view
 - Can navigate to a single campus view, and
-  - [ ] see details about a single campus, including enrolled students (if any)
-  - [ ] see an informative message if no students are enrolled at that campus
+  - [x] see details about a single campus, including enrolled students (if any)
+  - [x] see an informative message if no students are enrolled at that campus
   - [ ] navigate to any student’s single student view 
-  - [ ] delete the campus (and elegantly handle associated students)
-  - [ ] edit campus information (including adding/removing students)
-    - [ ] with a validated form displaying real-time error messages
-    - [ ] which redirects back to the single campus view
+  - [x] delete the campus (and elegantly handle associated students)
+  - [x] edit campus information (including adding/removing students)
+    - [x] with a validated form displaying real-time error messages
+    - [x] which redirects back to the single campus view
 - Can navigate to all students view, and
   - [ ] see a list of all students in the database
   - [ ] see an informative message if no students exist
@@ -72,15 +72,15 @@ Frontend (React-Redux, React, and React Router)
 Single Student and Single Campus (14/57)
 
 Backend (Express and Sequelize)
-- [ ] Write a route to serve up a single campus (based on its id), _including that campuses' students_
+- [x] Write a route to serve up a single campus (based on its id), _including that campuses' students_
 - [ ] Write a route to serve up a single student (based on their id), _including that student's campus_
 
 Frontend (React and React Router)
-- [ ] Write a component to display a single campus with the following information:
-  - [ ] The campus's name, image, address and description
-  - [ ] A list of the names of all students in that campus (or a helpful message if it doesn't have any students)
-- [ ] Display the appropriate campus's info when the url matches `/campuses/:campusId`
-- [ ] Clicking on a campus from the all-campuses view should navigate to show that campus in the single-campus view
+- [x] Write a component to display a single campus with the following information:
+  - [x] The campus's name, image, address and description
+  - [x] A list of the names of all students in that campus (or a helpful message if it doesn't have any students)
+- [x] Display the appropriate campus's info when the url matches `/campuses/:campusId`
+- [x] Clicking on a campus from the all-campuses view should navigate to show that campus in the single-campus view
 
 - [ ] Write a component to display a single student with the following information:
   - [ ] The student's full name, email, image, and gpa
@@ -113,7 +113,7 @@ Frontend (React and React Router)
 Removing a Campus and Removing a Student (10/57)
 
 Backend (Express and Sequelize)
-- [ ] Write a route to remove a campus (based on its id)
+- [x] Write a route to remove a campus (based on its id)
 - [ ] Write a route to remove a student (based on their id)
 
 Frontend (React and Axios/Fetch)
