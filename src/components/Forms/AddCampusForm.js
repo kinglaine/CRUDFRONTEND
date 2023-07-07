@@ -13,7 +13,7 @@ function AddCampusForm() {
             e.preventDefault();
             const response = await axios.post('http://localhost:8081/api/campuses/addcampus', {name, address, imageUrl, description});
             console.log(response.data);
-            navigate('/campuses');
+            navigate(`/campusView/${name}`);
         } catch (error) {
             console.error(error);
         }
