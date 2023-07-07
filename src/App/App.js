@@ -5,6 +5,7 @@ import Home from "../Pages/HomePage";
 import Campuses from "../Pages/CampusPage";
 import Students from "../Pages/StudentPage";
 import SingleCampusViewComponent from "../components/campusComponents/SingleCampusViewComponent";
+import AddCampusForm from "../components/Forms/AddCampusForm";
 function App() {
   return (
     <Router>
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
           <Route path="/Campuses" element={<Campuses></Campuses>}></Route>
+          <Route path="/campuses/addCampus" element={<AddCampusForm></AddCampusForm>}></Route>
           <Route path="/Students" element={<Students></Students>}></Route>
           <Route path="/campusView/:campusName" element={<SingleCampusViewComponent></SingleCampusViewComponent>}></Route>
         </Routes>
