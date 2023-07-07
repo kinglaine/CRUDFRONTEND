@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import "../Forms/AddCampusForm.css"
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 function AddCampusForm() {
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
     const [imageUrl, setImageUrl] = useState("");
     const [description, setDescription] = useState("");
-    
+    const navigate = useNavigate();
     const handleSubmit = async (e) =>{
         try {
             e.preventDefault();
             const response = await axios.post('http://localhost:8081/api/campuses/addcampus', {name, address, imageUrl, description});
             console.log(response.data);
+            navigate('/campuses');
         } catch (error) {
             console.error(error);
         }
