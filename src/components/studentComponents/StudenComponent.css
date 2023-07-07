@@ -1,0 +1,12 @@
+#studentContainer{
+    background-color: rgb(77, 81, 81);
+    padding: 2%;
+}
+
+#studentInfo{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 3%;
+}
