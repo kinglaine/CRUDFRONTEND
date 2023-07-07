@@ -40,7 +40,7 @@ function CampusComponent({campusName, imgUrl}){
                     <span id="studentNumber">6 Students</span>
                 </div>
                 <div id="actions">
-                    <a id="edit" href="">Edit</a>
+                    <Link id="edit" to={`/campuses/EditCampus/${campusName}`}>Edit</Link>
                     <button id="delete" onClick={handleDelete}>Delete</button>
                 </div>
             </div>
