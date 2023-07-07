@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCampusesThunk } from "../redux/campuses/campuses.action";
 import CampusesList from "../components/campusComponents/CampusesListComponent";
 import AddCampusComponent from "../components/campusComponents/AddCampusComponent";
 import AddCampusComponentEmptyDatabase from "../components/campusComponents/AddCampusComponentEmptyDatabase";
-import AddCampusForm from "../components/Forms/AddCampusForm";
 
 function CampusPage(){
-    const [formVisible, setFormVisible] = useState(false);
-
+    const [campusListChanged, setCampusListChanged] = useState(false);
     const fetchAllCampuses = () => {
         console.log("RUNNING IDSPATHC FROM FETCHALLCAPUSES");
         return dispatch(fetchAllCampusesThunk());
@@ -19,20 +17,19 @@ function CampusPage(){
     useEffect(() => {
         console.log("FETCH ALL CAMPUSES CALLED IN USEFFECT");
         fetchAllCampuses();
-    }, [formVisible]);
+    }, [campusListChanged]);
     
     return (
         <div>
             {
-                formVisible?(<AddCampusForm setFormVisible = {setFormVisible}></AddCampusForm>):
                 (allCampuses.length > 0?
                     (<div>
-                        <AddCampusComponent setFormVisible = {setFormVisible}></AddCampusComponent>
+                        <AddCampusComponent></AddCampusComponent>
                         <div style={{display: 'flex', flexWrap:'wrap'}}>
-                            <CampusesList allCampuses={allCampuses}></CampusesList>
+                            <CampusesList allCampuses={allCampuses} setCampusListChanged={setCampusListChanged} campusListChanged={campusListChanged}></CampusesList>
                         </div>
                     </div> ):
-                (<AddCampusComponentEmptyDatabase setFormVisible = {setFormVisible}/>))      
+                (<AddCampusComponentEmptyDatabase/>))      
             }
         </div>
     );
