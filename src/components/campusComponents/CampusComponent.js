@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../campusComponents/CampusComponent.css";
 import axios from "axios";
 import {Link} from 'react-router-dom';
-function CampusComponent({campusName, imgUrl}){
+function CampusComponent({campusName, imgUrl, setCampusListChanged, campusListChanged}){
     //check if image is valid
     function isNotImageUrl(url) {
         const imageExtensions = /\.(jpeg|jpg|gif|png|svg)$/i;
@@ -26,7 +26,11 @@ function CampusComponent({campusName, imgUrl}){
     const handleDelete = async (e) => {
         try {
             await axios.delete(`http://localhost:8081/api/campuses/RemoveCampus/${campusName}`);
-            window.location.reload();
+            if(!campusListChanged){
+                setCampusListChanged(true)
+            }else{
+                setCampusListChanged(false);
+            }
         } catch (error) {
             console.log(error);
         }
