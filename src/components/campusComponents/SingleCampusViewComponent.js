@@ -3,11 +3,14 @@ import "../campusComponents/SingleCampusViewComponent.css";
 import axios from "axios";
 import StudentListComponent from "../studentComponents/StudentListComponent";
 import StudentsListEmptyComponent from "../studentComponents/StudentsListEmptyComponents"
+import {Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 function SingleCampusViewComponent(){
     const currentUrl = "http://localhost:8081/api/campuses"+window.location.pathname;
     console.log("hhe curr url is",currentUrl);
     const [campusData, setCampusData] = useState(null);
     const [studentsData, setStudentsData] = useState(null);
+    const navigate = useNavigate();
     function getCampusData(){
         try {
             axios.get(currentUrl).then((response) =>{
@@ -53,7 +56,14 @@ function SingleCampusViewComponent(){
         return !imageExtensions.test(url) || !imagePatterns.test(url);
     }
     
-   
+    const handleDelete = async (e) => {
+        try {
+            await axios.delete(`http://localhost:8081/api/campuses/RemoveCampus/${campusData?.name}`);
+            navigate('/campuses');
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <div>
             <div id="singleCampusContainer">
@@ -66,8 +76,8 @@ function SingleCampusViewComponent(){
             <div id="addressAndButtons">
                 {campusData? <span>{campusData.address}</span>: <span>N/A Address</span>}
                 <div id="campusIngleViewButtons">
-                    <a href="">Edit</a>
-                    <button id="deleteCampusSingleView">Delete</button>
+                    <Link id="edit" to={`/campuses/EditCampus/${campusData?.name}`}>Edit</Link>
+                    <button id="deleteCampusSingleView" onClick={handleDelete}>Delete</button>
                 </div>
             </div>
            {
