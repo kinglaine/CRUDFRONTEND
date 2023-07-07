@@ -21,7 +21,7 @@ function SingleCampusViewComponent(){
             console.log("error");
         }
     }
-
+    
     function getStudentsData(){
         try {
             axios.get(`${currentUrl}/Students`).then((response) =>{
